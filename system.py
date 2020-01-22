@@ -2,22 +2,26 @@ from interface import *
 from time import sleep
 
 while True:
-	answer = int(input('Enter the desired option: '))
+	answer = menu([
+		'See Registered People',
+		'Register new Person',
+		'Delete a Person',
+		'Exit the System'])
 	if answer == 1:
 		# Option to list file contents
-		print(answer)
+		print('Read file')
 	elif answer == 2:
 		# Option to register a new person
 		header('NEW REGISTER')
-		print(answer)
+		print('Registering new Person')
 	elif answer == 3:
 		# Option to delete a person
-		print(answer)
+		print('Deleting a person')
 	elif answer == 4:
 		# System Exit Option
-		print(answer)
+		header('Leaving the System... See you later!')
 		break
 	else:
 		# Message if you type any wrong options
-		print(answer)
+		print('\033[31mERROR! Type a valid option!\033[m')
 	sleep(1)
