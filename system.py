@@ -1,5 +1,11 @@
-from interface import *
+from lib.interface import *
+from lib.file import *
 from time import sleep
+
+arc = 'personregistration.txt'
+
+if not file_exist(arc):
+	create_file(arc)
 
 while True:
 	answer = menu([
@@ -9,11 +15,13 @@ while True:
 		'Exit the System'])
 	if answer == 1:
 		# Option to list file contents
-		print('Read file')
+		read_file(arc)
 	elif answer == 2:
 		# Option to register a new person
 		header('NEW REGISTER')
-		print('Registering new Person')
+		name = str(input('Name: '))
+		age = read_int('Age: ')
+		register(arc, name, age)
 	elif answer == 3:
 		# Option to delete a person
 		print('Deleting a person')
